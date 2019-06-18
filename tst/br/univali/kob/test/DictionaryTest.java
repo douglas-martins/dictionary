@@ -1,5 +1,6 @@
 package br.univali.kob.test;
 
+import br.univali.kob.model.Hash;
 import br.univali.kob.model.Map;
 
 public class DictionaryTest {
@@ -14,8 +15,8 @@ public class DictionaryTest {
         // insertMul() test case
         System.out.println();
         dictionaryTest.insertMulTestCase(new Integer[] {0, 1, 2, 3, 0, 1, 2, 0, 3, 0, 2},
-                new String[] {"Abacate", "Banana", "Caju", "Damasco", "Abacate", "Banana", "Caju", "Abacate",
-                        "Damasco", "Abacate", "Caju"});
+                new String[] {"Abacate", "Banana", "Caju", "Damasco", "Acamante", "Benja", "Caramba", "Abalou",
+                        "Deito", "Aalinho", "Correio"});
         System.out.println();
 
         // insert() test case
@@ -41,6 +42,31 @@ public class DictionaryTest {
         // isEmpty() test case
         System.out.println();
         dictionaryTest.isEmptyTestCase();
+        System.out.println();
+
+        // getTotal() test case
+        System.out.println();
+        dictionaryTest.getTotalTestCase();
+        System.out.println();
+
+        // isInside() test case
+        System.out.println();
+        dictionaryTest.isInsideTestCase(new Hash<>(0, "Abacate"));
+        System.out.println();
+
+        // isInside() test case
+        System.out.println();
+        dictionaryTest.isInsideTestCase(new Hash<>(0, "Acamante"));
+        System.out.println();
+
+        // getHashPosition() test case
+        System.out.println();
+        dictionaryTest.getHashPositionTestCase(new Hash<>(1, "Banana"));
+        System.out.println();
+
+        // getHashPosition() test case
+        System.out.println();
+        dictionaryTest.getHashPositionTestCase(new Hash<>(0, "Aalinho"));
         System.out.println();
 
         System.out.println("==================== DICTIONARY TEST ====================");
@@ -89,5 +115,41 @@ public class DictionaryTest {
         System.out.println(this.dictionary.get(key).getValue());
         this.dictionary.print();
         System.out.println("#################### GET TEST CASE ####################");
+    }
+
+    public void getTotalTestCase() {
+        System.out.println("#################### GET TOTAL TEST CASE ####################");
+        System.out.println("Total on the Map: " + this.dictionary.getTotal());
+        this.dictionary.print();
+        System.out.println("#################### GET TOTAL TEST CASE ####################");
+    }
+
+    public void isInsideTestCase(Hash<Integer, String> hash) {
+        System.out.println("#################### IS INSIDE TEST CASE ####################");
+        System.out.print("The hash ");
+        hash.print();
+        System.out.print("]");
+        System.out.print(" is inside? " + this.dictionary.isInside(hash));
+        System.out.println();
+        this.dictionary.print();
+        System.out.println("#################### IS INSIDE TEST CASE ####################");
+    }
+
+    public void getHashPositionTestCase(Hash<Integer, String> hash) {
+        System.out.println("#################### GET HASH POSITION TEST CASE ####################");
+        int position = this.dictionary.getHashPosition(hash);
+
+        if (position < 0) {
+            System.out.print("The hash ");
+            hash.print();
+            System.out.print("] is not inside the dictionary!");
+        } else {
+            System.out.print("The position on the dictionary for the hash ");
+            hash.print();
+            System.out.print("] is " + position);
+        }
+        System.out.println();
+        this.dictionary.print();
+        System.out.println("#################### GET HASH POSITION TEST CASE ####################");
     }
 }

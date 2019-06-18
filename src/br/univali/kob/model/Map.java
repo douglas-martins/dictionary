@@ -11,6 +11,7 @@ import java.util.Objects;
  */
 public class Map<K, V> {
     private List<Hash<K, V>> chains;
+    private int total;
 
     public Map() {
         this.chains = new ArrayList<>();
@@ -21,6 +22,50 @@ public class Map<K, V> {
      * @return boolean with true if the Map is empty and false if not.
      */
     public boolean isEmpty() { return (this.chains == null); }
+
+    /**
+     * Get Map total of values.
+     * @return int with the total of values on the Map.
+     */
+    public int getTotal() { return this.total; }
+
+    /**
+     * Check if the hash is inside the Map.
+     * @param hash: Hash<K, V> with the value of hash that will be search that is inside on the Map.
+     * @return boolean with true if the hash is inside the map or false if note.
+     */
+    public boolean isInside(Hash<K, V> hash) {
+        int group = hash(hash.getKey());
+        Hash<K, V> head = this.chains.get(group);
+
+        while (head != null) {
+            if (head.getKey().equals(hash.getKey())) {
+                return isHashInside(head, hash);
+            }
+            head = head.getNext();
+        }
+        return false;
+    }
+
+    /**
+     * Get the hash position on the Map.
+     * @param hash: Hash<K, V> with the value of hash that will be search the position on the Map.
+     * @return int with the value of position (-1 if not have position).
+     */
+    public int getHashPosition(Hash<K, V> hash) {
+        int group = hash(hash.getKey());
+        int position = 0;
+        Hash<K, V> head = this.chains.get(group);
+
+        while (head != null) {
+            if (head.getValue().equals(hash.getValue())) {
+                return position;
+            }
+            position++;
+            head = head.getNext();
+        }
+        return -1;
+    }
 
     /**
      * Insert a object on the Key group on the Map.
@@ -46,6 +91,7 @@ public class Map<K, V> {
         Hash<K, V> newElement = new Hash<>(key, value);
         newElement.setNext(head);
         this.chains.set(group, newElement);
+        this.total++;
     }
 
     /**
@@ -141,5 +187,14 @@ public class Map<K, V> {
             insideHash = insideHash.getNext();
         }
         Objects.requireNonNull(previous).setNext(new Hash<>(key, value));
+        this.total++;
+    }
+
+    private boolean isHashInside(Hash<K, V> head, Hash<K, V> hash) {
+        while (head != null) {
+            if (head.getValue().equals(hash.getValue())) { return true; }
+            head = head.getNext();
+        }
+        return false;
     }
 }
