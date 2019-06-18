@@ -10,70 +10,71 @@ public class DictionaryTest {
         System.out.println("==================== DICTIONARY TEST ====================");
         DictionaryTest dictionaryTest = new DictionaryTest();
 
-        dictionaryTest.init();
+        dictionaryTest.simulateTestCase();
+    }
+
+    private void init() { this.dictionary = new Map<>(); }
+
+    public void simulateTestCase() {
+        init();
 
         // insertMul() test case
         System.out.println();
-        dictionaryTest.insertMulTestCase(new Integer[] {0, 1, 2, 3, 0, 1, 2, 0, 3, 0, 2},
-                new String[] {"Abacate", "Banana", "Caju", "Damasco", "Acamante", "Benja", "Caramba", "Abalou",
-                        "Deito", "Aalinho", "Correio"});
+        insertMulTestCase(new Integer[] {0, 1, 2, 3, 0, 1, 2, 0, 3, 0, 2}, new String[] {"Abacate", "Banana", "Caju",
+                "Damasco", "Acamante", "Benja", "Caramba", "Abalou", "Deito", "Aalinho", "Correio"});
         System.out.println();
 
         // insert() test case
         System.out.println();
-        dictionaryTest.insertTestCase(4, "Elele");
+        insertTestCase(4, "Elele");
         System.out.println();
 
         // remove() test case
         System.out.println();
-        dictionaryTest.removeTestCase(0);
+        removeTestCase(0);
         System.out.println();
 
         // remove() test case
         System.out.println();
-        dictionaryTest.removeTestCase(1);
+        removeTestCase(1);
         System.out.println();
 
         // get() test case
         System.out.println();
-        dictionaryTest.getTestCase(4);
+        getTestCase(4);
         System.out.println();
 
         // isEmpty() test case
         System.out.println();
-        dictionaryTest.isEmptyTestCase();
+        isEmptyTestCase();
         System.out.println();
 
         // getTotal() test case
         System.out.println();
-        dictionaryTest.getTotalTestCase();
+        getTotalTestCase();
         System.out.println();
 
         // isInside() test case
         System.out.println();
-        dictionaryTest.isInsideTestCase(new Hash<>(0, "Abacate"));
+        isInsideTestCase(new Hash<>(0, "Abacate"));
         System.out.println();
 
         // isInside() test case
         System.out.println();
-        dictionaryTest.isInsideTestCase(new Hash<>(0, "Acamante"));
+        isInsideTestCase(new Hash<>(0, "Acamante"));
         System.out.println();
 
         // getHashPosition() test case
         System.out.println();
-        dictionaryTest.getHashPositionTestCase(new Hash<>(1, "Banana"));
+        getHashPositionTestCase(new Hash<>(1, "Banana"));
         System.out.println();
 
         // getHashPosition() test case
         System.out.println();
-        dictionaryTest.getHashPositionTestCase(new Hash<>(0, "Aalinho"));
+        getHashPositionTestCase(new Hash<>(0, "Aalinho"));
         System.out.println();
 
         System.out.println("==================== DICTIONARY TEST ====================");
-    }
-
-    private void init() {
-        this.dictionary = new Map<>();
     }
 
     public void isEmptyTestCase() {
