@@ -8,7 +8,6 @@ public class DictionaryTest {
     private Dictionary<Integer, String> dictionary;
 
     public static void main(String[] args) {
-        System.out.println("==================== DICTIONARY TEST ====================");
         DictionaryTest dictionaryTest = new DictionaryTest();
 
         dictionaryTest.simulateTestCase();
@@ -18,6 +17,8 @@ public class DictionaryTest {
 
     public void simulateTestCase() {
         init();
+
+        System.out.println("==================== DICTIONARY TEST ====================");
 
         // insertMul() test case
         System.out.println();
