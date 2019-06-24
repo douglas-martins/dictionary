@@ -14,7 +14,7 @@ public class DictionaryTest {
         dictionaryTest.simulateTestCase();
     }
 
-    private void init() { this.dictionary = new Dictionary<>(10, new Hash()); }
+    private void init() { this.dictionary = new Dictionary<>(10); }
 
     public void simulateTestCase() {
         init();
@@ -168,16 +168,19 @@ public class DictionaryTest {
         }
         System.out.println();
         this.dictionary.print();
+        this.dictionary.print();
         System.out.println("#################### GET ASSOCIATION POSITION TEST CASE ####################");
     }
 
     public void getGroupPositionTestCase(Association<Integer, String> association) {
         System.out.println("#################### GET GROUP POSITION TEST CASE ####################");
-        int position = this.dictionary.getAssociationPosition(association);
-        System.out.print("The position on the vector for the dictionary ");
+        int position = this.dictionary.getGroupPosition(association);
+
+        System.out.print("The position on the vector for the association ");
         association.print();
         System.out.print("] is " + position);
         System.out.println();
+        this.dictionary.print();
         System.out.println("#################### GET GROUP POSITION TEST CASE ####################");
     }
 }

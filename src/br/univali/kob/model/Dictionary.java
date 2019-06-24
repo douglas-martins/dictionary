@@ -19,6 +19,7 @@ public class Dictionary<K, V> {
      */
     public Dictionary(int size) {
         this.chains = new LinkedList[size];
+        this.hash = new Hash();
         initChains();
     }
 
@@ -123,7 +124,6 @@ public class Dictionary<K, V> {
             }
         }
 
-        // adicionar quando não encontra
         return null;
     }
 
