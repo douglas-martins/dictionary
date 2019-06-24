@@ -129,8 +129,8 @@ public class DictionaryTest {
     public void getTestCase(Integer key) {
         System.out.println("#################### GET TEST CASE ####################");
         int hash = this.dictionary.hash(key.hashCode());
-        System.out.println("Try to get value from the key " + hash + "...");
-        System.out.println(this.dictionary.get(key.hashCode()).getValue());
+        System.out.println("Try to get value from the key " + Math.abs(key.hashCode()) + " on the group " + hash + "...");
+        System.out.println("The value for the key and group is " + this.dictionary.get(key.hashCode()).getValue());
         this.dictionary.print();
         System.out.println("#################### GET TEST CASE ####################");
     }
@@ -167,7 +167,6 @@ public class DictionaryTest {
             System.out.print("] is " + position);
         }
         System.out.println();
-        this.dictionary.print();
         this.dictionary.print();
         System.out.println("#################### GET ASSOCIATION POSITION TEST CASE ####################");
     }
