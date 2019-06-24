@@ -14,14 +14,19 @@ public class Dictionary<K, V> {
     private Function hash;
 
     /**
-     *
-     * @param size
+     * Default constructor of class.
+     * @param size: int with the size of Dictionary.
      */
     public Dictionary(int size) {
         this.chains = new LinkedList[size];
         initChains();
     }
 
+    /**
+     * Constructor with the hash function.
+     * @param size: int with the size of Dictionary
+     * @param hash: Function with value of hash function for the Dictionary.
+     */
     public Dictionary(int size, Function hash) {
         this(size);
         this.hash = hash;

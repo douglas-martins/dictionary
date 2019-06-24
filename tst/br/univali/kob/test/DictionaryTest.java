@@ -3,6 +3,7 @@ package br.univali.kob.test;
 import br.univali.kob.model.Association;
 import br.univali.kob.model.Dictionary;
 import br.univali.kob.model.Hash;
+import br.univali.kob.model.HashTest;
 
 public class DictionaryTest {
     private Dictionary<Integer, String> dictionary;
